@@ -1,0 +1,31 @@
+target_symbol	outcome_name	check_name	check_value	interpretation	pass_flag
+GLP1R	cholelithiasis_primary	heterogeneity_q_p	9.957602e-01	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+GLP1R	cholelithiasis_primary	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+GLP1R	cholecystectomy_secondary	heterogeneity_q_p	2.750503e-01	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+GLP1R	cholecystectomy_secondary	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+GLP1R	cholecystectomy_ukb	heterogeneity_q_p	7.624157e-01	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+GLP1R	cholecystectomy_ukb	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+GLP1R	cholecystitis_finngen	heterogeneity_q_p	9.223226e-01	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+GLP1R	cholecystitis_finngen	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+GLP1R	acute_pancreatitis_finngen	heterogeneity_q_p	9.308958e-01	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+GLP1R	acute_pancreatitis_finngen	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+GIPR	cholelithiasis_primary	heterogeneity_q_p	1e+00	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+GIPR	cholelithiasis_primary	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+GIPR	cholecystectomy_secondary	heterogeneity_q_p	1e+00	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+GIPR	cholecystectomy_secondary	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+GIPR	cholecystectomy_ukb	heterogeneity_q_p	1e+00	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+GIPR	cholecystectomy_ukb	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+GIPR	cholecystitis_finngen	heterogeneity_q_p	1e+00	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+GIPR	cholecystitis_finngen	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+GIPR	acute_pancreatitis_finngen	heterogeneity_q_p	1e+00	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+GIPR	acute_pancreatitis_finngen	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+SLC5A2	cholelithiasis_primary	heterogeneity_q_p	1.235776e-01	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+SLC5A2	cholelithiasis_primary	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+SLC5A2	cholecystectomy_secondary	heterogeneity_q_p	2.282401e-01	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+SLC5A2	cholecystectomy_secondary	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+SLC5A2	cholecystectomy_ukb	heterogeneity_q_p	9.636941e-01	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+SLC5A2	cholecystectomy_ukb	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+SLC5A2	cholecystitis_finngen	heterogeneity_q_p	9.209865e-01	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+SLC5A2	cholecystitis_finngen	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA
+SLC5A2	acute_pancreatitis_finngen	heterogeneity_q_p	6.280741e-02	Cochran Q test for heterogeneity (IVW residuals).	TRUE
+SLC5A2	acute_pancreatitis_finngen	egger_not_run	nsnp<3	MR-Egger requires >=3 instruments.	NA

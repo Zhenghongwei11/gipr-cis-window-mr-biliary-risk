@@ -1,0 +1,176 @@
+rsid	id	trait	beta	se	p	eaf	ea	nea	n
+rs10407429	eqtl-a-ENSG00000104936	ENSG00000104936	0.174799	0.0118875	6.05899e-49	0.444241	A	G	26946
+rs10407429	ebi-a-GCST90014006	Glycated haemoglobin HbA1c levels (UKB data field 30750)	-0.0254364	0.00203485	7.43019e-36	NA	A	G	389889
+rs10407429	eqtl-a-ENSG00000185800	ENSG00000185800	0.144945	0.0119159	4.84507e-34	0.444241	A	G	26946
+rs10407429	ebi-a-GCST010118	Type 2 diabetes	-0.0894	0.0079	1.08793e-29	0.2735	A	G	433540
+rs10407429	ebi-a-GCST90018958	Hemoglobin A1c levels	-0.0233	0.0021	2.20597e-28	0.392504	A	G	344182
+rs10407429	ukb-d-30750_irnt	Glycated haemoglobin	-0.024773	0.0023256	1.72385e-26	0.42546	A	G	344182
+rs10407429	ebi-a-GCST90018926	Type 2 diabetes	-0.066	0.0068	1.63795e-22	0.378151	A	G	490089
+rs10407429	ebi-a-GCST90028999	Platelet count	0.0174116	0.00189854	5.40008e-20	0.424933	A	G	600968
+rs10407429	ebi-a-GCST90028996	Mean platelet volume	-0.0152555	0.00178148	2.99985e-18	0.424871	A	G	694866
+rs10407429	ebi-a-GCST90018981	Medication use (drugs used in diabetes)	-0.071	0.0083	1.25401e-17	0.355217	A	G	305913
+rs10407429	ebi-a-GCST90013981	Mean platelet thrombocyte volume (UKB data field 30100)	-0.0161742	0.00192408	4.23448e-17	NA	A	G	396616
+rs10407429	ebi-a-GCST90029000	Platelet distribution width	-0.0159963	0.00194523	1.29987e-16	0.424933	A	G	572201
+rs10407429	bbj-a-153	Type 2 diabetes	-0.0839136	0.010169	1.55883e-16	0.231033	A	G	NA
+rs10407429	ukb-d-30750_raw	Glycated haemoglobin	-0.12742	0.015517	2.1918e-16	0.42546	A	G	344182
+rs10407429	ebi-a-GCST90013980	Platelet count (UKB data field 30080)	0.0161674	0.00199884	6.04784e-16	NA	A	G	396621
+rs10407429	bbj-a-77	Type 2 Diabetes	-0.0868	0.0111	4.19276e-15	0.2321	A	G	NA
+rs10407429	ebi-a-GCST90002357	Platelet count	0.014436	0.001887	2.09991e-14	0.429029	A	G	542827
+rs10407429	ukb-d-30110_irnt	Platelet distribution width	-0.018086	0.00239025	3.84149e-14	0.42573	A	G	350470
+rs10407429	ebi-a-GCST90002402	Platelet count	0.0158706	0.00213506	1.10002e-13	0.425712	A	G	408112
+rs10407429	ukb-b-10753	Diabetes diagnosed by doctor	-0.00330583	0.00045001	1.99986e-13	0.424943	A	G	461578
+rs10407429	ebi-a-GCST90038633	Diabetes	-0.00321013	0.000437984	3.19963e-13	0.42748	A	G	484598
+rs10407429	eqtl-a-ENSG00000125743	ENSG00000125743	0.0868416	0.0119559	3.77485e-13	0.444241	A	G	26732
+rs10407429	eqtl-a-ENSG00000177045	ENSG00000177045	0.0855729	0.0119565	8.25848e-13	0.444241	A	G	21871
+rs10407429	ebi-a-GCST90018706	Type 2 diabetes	-0.0778147	0.0109394	1.13344e-12	0.237215	A	G	177415
+rs10407429	ebi-a-GCST90029024	Type 2 diabetes	-0.00295315	0.000417464	1.39991e-12	0.424797	A	G	468298
+rs10407429	ebi-a-GCST90002346	Mean platelet volume	-0.013341	0.001945	7.1105e-12	0.425516	A	G	460935
+rs10407429	ukb-d-30100_irnt	Mean platelet (thrombocyte) volume	-0.0160552	0.00241496	2.97098e-11	0.42573	A	G	350470
+rs10407429	ukb-d-30080_irnt	Platelet count	0.0155409	0.0023376	2.97098e-11	0.42573	A	G	350474
+rs10407429	ebi-a-GCST90014007	High density lipoprotein cholesterol levels (UKB data field 30760)	0.0125096	0.0019782	2.55294e-10	NA	A	G	357810
+rs10407429	ebi-a-GCST90002395	Mean platelet volume	-0.0130609	0.00207692	3.2e-10	0.425685	A	G	408112
+rs10407429	ieu-b-4842	HbA1c	-0.0391	0.0063	3.93097e-10	NA	A	G	44991
+rs10407429	ukb-b-3881	Fresh fruit intake	0.00771456	0.00123676	4.39997e-10	0.42495	A	G	446462
+rs10407429	ukb-b-12948	Non-cancer illness code, self-reported: diabetes	-0.0025144	0.000407498	6.80002e-10	0.42489	A	G	462933
+rs10407429	ebi-a-GCST90018969	Platelet count	0.0123	0.002	1.048e-09	0.36957	A	G	350474
+rs10407429	ebi-a-GCST90002401	Platelet distribution width	-0.0131621	0.00217863	1.5e-09	0.425682	A	G	408112
+rs10407429	ebi-a-GCST90096912	Fresh fruit consumption	0.00455149	0.000784627	6.59857e-09	NA	A	G	433186
+rs10407429	ebi-a-GCST90014005	Glucose levels (UKB data field 30740)	-0.0134002	0.00231399	6.99826e-09	NA	A	G	357580
+rs10407429	ebi-a-GCST90013405	Liver enzyme levels (alanine transaminase)	-0.00226222	0.000393018	7.59994e-09	0.424641	A	G	437267
+rs10407429	ukb-b-14609	Treatment/medication code: metformin	-0.00188786	0.000327421	8.10009e-09	0.42489	A	G	462933
+rs17561351	eqtl-a-ENSG00000130202	ENSG00000130202	1.97862	0.0190629	3.27340999999998e-310	0.0587334	G	A	30759
+rs17561351	ebi-a-GCST90028996	Mean platelet volume	0.0446085	0.00361451	1.39991e-37	0.063855	G	A	694866
+rs17561351	ebi-a-GCST90013981	Mean platelet thrombocyte volume (UKB data field 30100)	0.0458629	0.0039198	1.2697e-31	NA	G	A	396616
+rs17561351	ebi-a-GCST90002346	Mean platelet volume	0.045254	0.003951	2.42996e-30	0.063895	G	A	460935
+rs17561351	ebi-a-GCST90002412	Low density lipoprotein cholesterol levels	0.0419146	0.00379961	2.70023e-28	0.063963	G	A	431167
+rs17561351	ebi-a-GCST90002395	Mean platelet volume	0.046335	0.00422422	5.40008e-28	0.063566	G	A	408112
+rs17561351	ieu-b-108	apolipoprotein B	0.0440635	0.0042059	1.10002e-25	0.06408	G	A	NA
+rs17561351	ebi-a-GCST90013994	Apolipoprotein B levels (UKB data field 30640)	0.045037	0.00445409	4.91813e-24	NA	G	A	388022
+rs17561351	met-d-IDL_C_pct	Cholesterol to total lipids ratio in IDL	0.0740936	0.00828568	2.29985e-20	0.063523	G	A	NA
+rs17561351	ukb-d-30100_irnt	Mean platelet (thrombocyte) volume	0.0451049	0.00490104	3.49543e-20	0.0638348	G	A	350470
+rs17561351	ukb-d-30640_irnt	Apoliprotein B	0.04457	0.0048652	5.16535e-20	0.064049	G	A	342590
+rs17561351	met-d-IDL_CE_pct	Cholesteryl esters to total lipids ratio in IDL	0.0740573	0.00832789	8.30042e-20	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092832	Cholesterol to total lipids ratio in IDL	0.0745277	0.00823707	1.50003e-19	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90092834	Cholesteryl esters to total lipids ratio in IDL	0.0746551	0.00825511	1.50003e-19	0.063534	G	A	115082
+rs17561351	met-d-S_LDL_FC_pct	Free cholesterol to total lipids ratio in small LDL	0.072502	0.00822738	3.80014e-19	0.063523	G	A	NA
+rs17561351	ieu-b-111	triglycerides	-0.0363975	0.00407138	3.90032e-19	0.064037	G	A	NA
+rs17561351	ebi-a-GCST90092961	Free cholesterol to total lipids ratio in small LDL	0.0725417	0.00817288	6.90081e-19	0.063534	G	A	115082
+rs17561351	met-d-IDL_TG_pct	Triglycerides to total lipids ratio in IDL	-0.0698115	0.00819991	1.9002e-18	0.063523	G	A	NA
+rs17561351	ukb-d-30640_raw	Apoliprotein B	0.010057	0.0011585	3.93822e-18	0.064049	G	A	342590
+rs17561351	ebi-a-GCST90092842	Triglycerides to total lipids ratio in IDL	-0.0704623	0.00813442	4.60045e-18	0.063534	G	A	115082
+rs17561351	met-d-S_LDL_TG_pct	Triglycerides to total lipids ratio in small LDL	-0.0695272	0.0082263	6.4003e-18	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092967	Triglycerides to total lipids ratio in small LDL	-0.0700253	0.00816517	9.79941e-18	0.063534	G	A	115082
+rs17561351	met-d-L_LDL_FC_pct	Free cholesterol to total lipids ratio in large LDL	0.0661196	0.00810115	3.69999e-17	0.063523	G	A	NA
+rs17561351	met-d-M_LDL_FC_pct	Free cholesterol to total lipids ratio in medium LDL	0.066177	0.00814312	8.49963e-17	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092861	Free cholesterol to total lipids ratio in large LDL	0.0664248	0.00805985	1.69981e-16	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90092909	Free cholesterol to total lipids ratio in medium LDL	0.0660423	0.00809482	3.40017e-16	0.063534	G	A	115082
+rs17561351	met-d-XS_VLDL_CE_pct	Cholesteryl esters to total lipids ratio in very small VLDL	0.0628568	0.00800634	5.40008e-16	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90014014	Triglyceride levels (UKB data field 30870)	-0.0340605	0.00423102	8.26609e-16	NA	G	A	389562
+rs17561351	ebi-a-GCST90093031	Cholesteryl esters to total lipids ratio in very small VLDL	0.0634997	0.00795526	1.39991e-15	0.063534	G	A	115082
+rs17561351	met-d-XS_VLDL_C_pct	Cholesterol to total lipids ratio in very small VLDL	0.0623162	0.0080483	1.59993e-15	0.063523	G	A	NA
+rs17561351	met-d-L_LDL_TG_pct	Triglycerides to total lipids ratio in large LDL	-0.0644332	0.00832736	2.99985e-15	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092867	Triglycerides to total lipids ratio in large LDL	-0.0649219	0.00824338	3.40017e-15	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90093029	Cholesterol to total lipids ratio in very small VLDL	0.0629204	0.00800829	3.90032e-15	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90018975	Triglycerides	-0.037	0.0048	7.34176e-15	0.064001	G	A	343992
+rs17561351	ukb-d-30870_irnt	Triglycerides	-0.036999	0.0047566	7.36038e-15	0.064001	G	A	343992
+rs17561351	ebi-a-GCST90014006	Glycated haemoglobin HbA1c levels (UKB data field 30750)	0.0321246	0.00414271	8.86952e-15	NA	G	A	389889
+rs17561351	met-d-M_LDL_TG_pct	Triglycerides to total lipids ratio in medium LDL	-0.0632256	0.00838479	1.50003e-14	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092915	Triglycerides to total lipids ratio in medium LDL	-0.0637565	0.00830966	1.69981e-14	0.063534	G	A	115082
+rs17561351	met-d-XS_VLDL_TG_pct	Triglycerides to total lipids ratio in very small VLDL	-0.0595986	0.00806852	4.40048e-14	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90093039	Triglycerides to total lipids ratio in very small VLDL	-0.0602904	0.00802457	5.79963e-14	0.063534	G	A	115082
+rs17561351	ieu-b-110	LDL cholesterol	0.0318452	0.00424653	6.4003e-14	0.064029	G	A	NA
+rs17561351	met-d-L_LDL_C_pct	Cholesterol to total lipids ratio in large LDL	0.060118	0.00827649	2.70023e-13	0.063523	G	A	NA
+rs17561351	met-d-S_HDL_C_pct	Cholesterol to total lipids ratio in small HDL	0.0591667	0.00839873	2.99985e-13	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092857	Cholesterol to total lipids ratio in large LDL	0.059831	0.00823738	3.80014e-13	0.063534	G	A	115082
+rs17561351	met-d-XXL_VLDL_FC	Free cholesterol in chylomicrons and extremely large VLDL	-0.0569343	0.00820149	1.10002e-12	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092945	Cholesterol to total lipids ratio in small HDL	0.0590767	0.00834646	1.50003e-12	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90002298	Eosinophil counts	0.028615	0.00406	1.89017e-12	0.064184	G	A	474237
+rs17561351	ieu-b-33	eosinophil cell count	0.028615	0.00406	1.89017e-12	0.064184	G	A	473279
+rs17561351	ebi-a-GCST90092977	Phospholipids to total lipids ratio in small VLDL	0.0568025	0.00807392	1.99986e-12	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90014009	Direct low density lipoprotein levels (UKB data field 30780)	0.031299	0.00444963	2.00586e-12	NA	G	A	389189
+rs17561351	met-d-S_VLDL_PL_pct	Phospholipids to total lipids ratio in small VLDL	0.0563557	0.00811938	2.09991e-12	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90013871	Direct low density lipoprotein levels (UKB data field 30780)	0.0312043	0.00444803	2.29456e-12	NA	G	A	389189
+rs17561351	met-d-XXL_VLDL_C	Cholesterol in chylomicrons and extremely large VLDL	-0.0557951	0.00820506	2.70023e-12	0.063523	G	A	NA
+rs17561351	met-d-S_VLDL_FC_pct	Free cholesterol to total lipids ratio in small VLDL	0.0558138	0.0081049	2.70023e-12	0.063523	G	A	NA
+rs17561351	ukb-d-30870_raw	Triglycerides	-0.034328	0.0049146	2.85562e-12	0.064001	G	A	343992
+rs17561351	ebi-a-GCST90093044	Free cholesterol levels in chylomicrons and extremely large VLDL	-0.0571075	0.00818258	2.99985e-12	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90092973	Free cholesterol to total lipids ratio in small VLDL	0.0562165	0.0080594	3.10027e-12	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90093040	Cholesterol levels in chylomicrons and extremely large VLDL	-0.0560191	0.00819158	8.00018e-12	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90002381	Eosinophil counts	0.0297399	0.00436034	9.09913e-12	0.063822	G	A	408112
+rs17561351	met-d-S_LDL_FC	Free cholesterol in small LDL	0.0563201	0.00845941	9.8992e-12	0.063523	G	A	NA
+rs17561351	met-d-XXL_VLDL_CE	Cholesteryl esters in chylomicrons and extremely large VLDL	-0.0542181	0.00822227	1.29987e-11	0.063523	G	A	NA
+rs17561351	met-d-XXL_VLDL_PL	Phospholipids in chylomicrons and extremely large VLDL	-0.0537103	0.00817029	1.50003e-11	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90093042	Cholesteryl ester levels in chylomicrons and extremely large VLDL	-0.0544681	0.00821095	3.29989e-11	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90028998	White blood cell count (monocyte)	0.0273721	0.00401547	3.59998e-11	0.063872	G	A	545193
+rs17561351	ebi-a-GCST90018967	Monocyte count	0.0314	0.0048	3.63664e-11	0.0638274	G	A	349856
+rs17561351	ukb-d-30130_irnt	Monocyte count	0.0314458	0.00475144	3.6425e-11	0.0638274	G	A	349856
+rs17561351	ebi-a-GCST90018961	LDL cholesterol	0.032	0.0048	3.64334e-11	0.063996	G	A	343621
+rs17561351	ukb-d-30780_irnt	LDL direct	0.031952	0.0048281	3.64838e-11	0.063996	G	A	343621
+rs17561351	ebi-a-GCST90018958	Hemoglobin A1c levels	0.0312	0.0047	3.83442e-11	0.063911	G	A	344182
+rs17561351	ukb-d-30750_irnt	Glycated haemoglobin	0.031187	0.0047179	3.83707e-11	0.063911	G	A	344182
+rs17561351	ebi-a-GCST90092960	Free cholesterol levels in small LDL	0.0558319	0.00845488	4.00037e-11	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90093048	Phospholipid levels in chylomicrons and extremely large VLDL	-0.0537108	0.00815212	4.40048e-11	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90028992	White blood cell count (eosinophil)	0.0270808	0.00408644	5.60015e-11	0.063821	G	A	513859
+rs17561351	met-d-XS_VLDL_PL_pct	Phospholipids to total lipids ratio in very small VLDL	-0.052544	0.00830129	6.29941e-11	0.063523	G	A	NA
+rs17561351	met-d-XXL_VLDL_L	Total lipids in chylomicrons and extremely large VLDL	-0.0523023	0.00820064	7.00003e-11	0.063523	G	A	NA
+rs17561351	ukb-d-30780_raw	LDL direct	0.02734	0.0041961	7.24603e-11	0.063996	G	A	343621
+rs17561351	ebi-a-GCST90013985	Eosinophill count (UKB data field 30150)	0.0280715	0.00431264	7.55962e-11	NA	G	A	395949
+rs17561351	ebi-a-GCST90013983	Monocyte count (UKB data field 30130)	0.0269593	0.00417324	1.04669e-10	NA	G	A	395949
+rs17561351	ebi-a-GCST90002400	Plateletcrit	0.0281761	0.00436984	1.09999e-10	0.063576	G	A	408112
+rs17561351	met-d-XXL_VLDL_P	Concentration of chylomicrons and extremely large VLDL particles	-0.0511165	0.00818905	1.40001e-10	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90093046	Total lipid levels in chylomicrons and extremely large VLDL	-0.0523617	0.00818923	1.6e-10	0.063534	G	A	115082
+rs17561351	met-d-IDL_PL_pct	Phospholipids to total lipids ratio in IDL	-0.0534699	0.00853408	1.7e-10	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90093047	Concentration of chylomicrons and extremely large VLDL particles	-0.0513281	0.00816973	3.29997e-10	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90093037	Phospholipids to total lipids ratio in very small VLDL	-0.0520187	0.00828891	3.50002e-10	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90092840	Phospholipids to total lipids ratio in IDL	-0.0531685	0.0085282	4.49997e-10	0.063534	G	A	115082
+rs17561351	met-d-XL_HDL_TG_pct	Triglycerides to total lipids ratio in very large HDL	-0.0473816	0.00802169	4.49997e-10	0.063527	G	A	NA
+rs17561351	met-d-S_HDL_CE_pct	Cholesteryl esters to total lipids ratio in small HDL	0.0503888	0.00838583	4.60002e-10	0.063523	G	A	NA
+rs17561351	met-d-S_VLDL_TG_pct	Triglycerides to total lipids ratio in small VLDL	-0.0504754	0.00821465	4.70002e-10	0.063523	G	A	NA
+rs17561351	met-d-L_LDL_FC	Free cholesterol in large LDL	0.0508068	0.00833168	5e-10	0.063523	G	A	NA
+rs17561351	met-d-M_VLDL_CE_pct	Cholesteryl esters to total lipids ratio in medium VLDL	0.0485569	0.00797937	5.19996e-10	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092979	Triglycerides to total lipids ratio in small VLDL	-0.0507536	0.00818222	5.49997e-10	0.063534	G	A	115082
+rs17561351	ebi-a-GCST004599	Mean platelet volume	0.0449143	0.00723964	5.50706e-10	0.0583	G	A	164454
+rs17561351	met-d-XL_HDL_CE_pct	Cholesteryl esters to total lipids ratio in very large HDL	0.0513373	0.00850088	5.60003e-10	0.063527	G	A	NA
+rs17561351	met-d-LDL_FC	Free cholesterol in LDL	0.0508838	0.00839284	6.1e-10	0.063523	G	A	NA
+rs17561351	met-d-M_HDL_C_pct	Cholesterol to total lipids ratio in medium HDL	0.0476749	0.00810476	6.59994e-10	0.063523	G	A	NA
+rs17561351	met-d-S_HDL_TG_pct	Triglycerides to total lipids ratio in small HDL	-0.0471301	0.00809921	7.00003e-10	0.063523	G	A	NA
+rs17561351	met-d-M_HDL_TG_pct	Triglycerides to total lipids ratio in medium HDL	-0.0475734	0.00816496	7.49998e-10	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092919	Cholesteryl esters to total lipids ratio in medium VLDL	0.0487614	0.00795005	8.60003e-10	0.063534	G	A	115082
+rs17561351	met-d-L_HDL_TG_pct	Triglycerides to total lipids ratio in large HDL	-0.0460499	0.00803482	9.59997e-10	0.063523	G	A	NA
+rs17561351	met-d-IDL_CE	Cholesteryl esters in IDL	0.0497177	0.00819122	1.09999e-09	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092947	Cholesteryl esters to total lipids ratio in small HDL	0.0505859	0.00830807	1.09999e-09	0.063534	G	A	115082
+rs17561351	met-d-M_HDL_TG	Triglycerides in medium HDL	-0.0482801	0.0084032	1.2e-09	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90093015	Triglycerides to total lipids ratio in very large HDL	-0.048443	0.00798952	1.29999e-09	0.063539	G	A	115056
+rs17561351	met-d-L_HDL_C_pct	Cholesterol to total lipids ratio in large HDL	0.0470777	0.00802266	1.40001e-09	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092833	Cholesteryl ester levels in IDL	0.0496079	0.00819332	1.40001e-09	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90092860	Free cholesterol levels in large LDL	0.050364	0.00833312	1.5e-09	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90093007	Cholesteryl esters to total lipids ratio in very large HDL	0.0508764	0.00846043	1.79999e-09	0.063539	G	A	115056
+rs17561351	ebi-a-GCST90092885	Free cholesterol levels in LDL	0.0503934	0.00839336	1.89998e-09	0.063534	G	A	115082
+rs17561351	met-d-XS_VLDL_TG	Triglycerides in very small VLDL	-0.046937	0.00838239	2e-09	0.063523	G	A	NA
+rs17561351	met-d-L_VLDL_PL_pct	Phospholipids to total lipids ratio in large VLDL	-0.048613	0.00826561	2.1e-09	0.063525	G	A	NA
+rs17561351	met-d-IDL_C	Cholesterol in IDL	0.048759	0.00819487	2.30001e-09	0.063523	G	A	NA
+rs17561351	met-d-M_VLDL_C_pct	Cholesterol to total lipids ratio in medium VLDL	0.0470399	0.00800035	2.30001e-09	0.063523	G	A	NA
+rs17561351	met-d-S_HDL_TG	Triglycerides in small HDL	-0.0462808	0.00825797	2.69998e-09	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092845	Cholesterol to total lipids ratio in large HDL	0.047501	0.00799202	2.80001e-09	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90092831	Cholesterol levels in IDL	0.0485927	0.00819584	2.99999e-09	0.063534	G	A	115082
+rs17561351	met-d-XXL_VLDL_TG	Triglycerides in chylomicrons and extremely large VLDL	-0.0482235	0.0082158	3.29997e-09	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092917	Cholesterol to total lipids ratio in medium VLDL	0.0471774	0.00798161	3.40001e-09	0.063534	G	A	115082
+rs17561351	met-d-M_HDL_CE_pct	Cholesteryl esters to total lipids ratio in medium HDL	0.0465292	0.00825538	3.40001e-09	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092877	Phospholipids to total lipids ratio in large VLDL	-0.0487821	0.00825395	3.40001e-09	0.063535	G	A	115071
+rs17561351	ebi-a-GCST90018978	White blood cell count	0.0288	0.0049	3.788e-09	0.0638334	G	A	350470
+rs17561351	ukb-d-30000_irnt	White blood cell (leukocyte) count	0.0287992	0.00488686	3.7914e-09	0.0638334	G	A	350470
+rs17561351	ebi-a-GCST90092955	Triglycerides to total lipids ratio in small HDL	-0.0474876	0.0080627	3.89996e-09	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90092893	Cholesterol to total lipids ratio in medium HDL	0.0475714	0.00808556	4e-09	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90092903	Triglycerides to total lipids ratio in medium HDL	-0.0477988	0.00813132	4.09996e-09	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90093050	Triglyceride levels in chylomicrons and extremely large VLDL	-0.0481106	0.00820787	4.60002e-09	0.063534	G	A	115082
+rs17561351	met-d-HDL_TG	Triglycerides in HDL	-0.0466643	0.00839184	4.90004e-09	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092855	Triglycerides to total lipids ratio in large HDL	-0.0467761	0.00800037	5e-09	0.063534	G	A	115082
+rs17561351	ebi-a-GCST90092902	Triglyceride levels in medium HDL	-0.0486422	0.00834099	5.49997e-09	0.063534	G	A	115082
+rs17561351	met-d-TG_by_PG	Ratio of triglycerides to phosphoglycerides	-0.043452	0.00790238	5.69994e-09	0.063538	G	A	NA
+rs17561351	ebi-a-GCST90002374	White blood cell count	0.021986	0.003771	5.69994e-09	0.064155	G	A	562243
+rs17561351	ieu-b-30	white blood cell count	0.021986	0.003771	5.69994e-09	0.064155	G	A	558125
+rs17561351	ebi-a-GCST90029003	White blood cell count	0.0240063	0.00405082	5.80003e-09	0.063882	G	A	503190
+rs17561351	ebi-a-GCST90093038	Triglyceride levels in very small VLDL	-0.0478541	0.00828216	7.59994e-09	0.063534	G	A	115082
+rs17561351	met-d-S_LDL_CE_pct	Cholesteryl esters to total lipids ratio in small LDL	-0.0484245	0.0084907	7.69999e-09	0.063523	G	A	NA
+rs17561351	met-d-S_VLDL_C_pct	Cholesterol to total lipids ratio in small VLDL	0.0469159	0.00826324	8.70001e-09	0.063523	G	A	NA
+rs17561351	ebi-a-GCST90092965	Phospholipids to total lipids ratio in small LDL	0.0486946	0.00849557	9.90011e-09	0.063534	G	A	115082

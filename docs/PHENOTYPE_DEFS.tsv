@@ -1,0 +1,6 @@
+outcome_name	dataset_source	release_or_version	build	phenotype_code	n_case	n_control	ancestry	notes	summary_stats_path
+cholelithiasis_primary	finngen	R12	GRCh38	K11_CHOLELITH	49834	437418	EUR	Primary endpoint: FinnGen R12 cholelithiasis (laptop-friendly subset containing only UNION instrument rsIDs).	data/processed/finngen/r12_subset/UNION__K11_CHOLELITH.tsv
+cholecystectomy_secondary	finngen	R12	GRCh38	K11_CHOLECYSTECTOMY	36556	463792	EUR	Key secondary endpoint: FinnGen R12 cholecystectomy (laptop-friendly subset containing only UNION instrument rsIDs).	data/processed/finngen/r12_subset/UNION__K11_CHOLECYSTECTOMY.tsv
+cholecystectomy_ukb	ukb	OpenGWAS	NA	OPCS_cholecystectomy	18319	444614	EUR	Triangulation endpoint: UKB operation code for cholecystectomy/gall bladder removal (OpenGWAS variant-level query). Potential sample overlap with UKB-based HbA1c exposure GWAS.	opengwas:ukb-b-6235
+cholecystitis_finngen	finngen	OpenGWAS	NA	K11_CHOLECYST	2013	195144	EUR	Safety endpoint: FinnGen cholecystitis (OpenGWAS variant-level query; smaller sample than FinnGen R12).	opengwas:finn-b-K11_CHOLECYST
+acute_pancreatitis_finngen	finngen	OpenGWAS	NA	K11_ACUTPANC	3022	195144	EUR	Safety endpoint: FinnGen acute pancreatitis (OpenGWAS variant-level query; smaller sample than FinnGen R12).	opengwas:finn-b-K11_ACUTPANC

@@ -1,0 +1,16 @@
+Package: incretin-biliary-mr-repro
+Type: Project
+Title: Drug-target Mendelian Randomization Reproducibility Bundle
+Version: 0.1.0
+Authors@R: c(
+  person("Hongwei", "Zheng", role = c("aut", "cre")),
+  person("Wenbiao", "Chen", role = c("aut"))
+)
+Description: Reviewer-facing reproducibility bundle to regenerate manuscript figures from Source Data tables.
+License: MIT
+Encoding: UTF-8
+Imports:
+  ggplot2,
+  cowplot,
+  scales,
+  ggrepel

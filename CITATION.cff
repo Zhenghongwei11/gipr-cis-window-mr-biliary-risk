@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Drug-target MR: incretin pathway and biliary/pancreatic outcomes"
+authors:
+  - family-names: "Zheng"
+    given-names: "Hongwei"
+    affiliation: "School of Medicine, Quanzhou Medical College, Quanzhou, Fujian, People's Republic of China"
+  - family-names: "Chen"
+    given-names: "Wenbiao"
+    affiliation: "School of Medicine, Quanzhou Medical College, Quanzhou, Fujian, People's Republic of China"
+date-released: "2026-03-16"
+license: "MIT"
+repository-code: "https://github.com/Zhenghongwei11/gipr-cis-window-mr-biliary-risk"
