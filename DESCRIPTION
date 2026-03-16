@@ -13,4 +13,5 @@ Imports:
   ggplot2,
   cowplot,
   scales,
-  ggrepel
+  ggrepel,
+  ggforce

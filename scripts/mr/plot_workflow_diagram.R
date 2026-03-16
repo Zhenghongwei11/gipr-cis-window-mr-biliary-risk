@@ -1,147 +1,118 @@
 #!/usr/bin/env Rscript
-# Figure 1: Scientific Workflow Schematic (Final Refined Version)
-#
-# Logic Alignment:
-# Step 1: Instrument Discovery
-# Step 2: Primary MR Analysis
-# Step 3: Methodological Guardrails
-# Step 4: Evidence Triangulation
+# Figure 1: Study design and methodological framework (workflow schematic)
 
 source("scripts/mr/lib_io.R")
 
 suppressPackageStartupMessages({
   library(ggplot2)
-  library(scales)
   library(grid)
+  library(ggforce) 
 })
 
 args <- commandArgs(trailingOnly = TRUE)
 get_arg <- function(flag, default = NULL) {
   idx <- which(args == flag)
   if (length(idx) == 0) return(default)
-  if (idx == length(args)) stop("Missing value for ", flag)
   args[idx + 1]
 }
-
 plot_outdir <- get_arg("--outdir", "plots/causal/drug_target_mr")
-pheno_defs <- get_arg("--pheno-defs", "docs/PHENOTYPE_DEFS.tsv")
-
-# --- Aesthetic Configuration ---
-cols <- list(
-  header  = "#2C3E50", # Dark Navy
-  step1   = "#34495E", # Slate
-  step2   = "#2980B9", # Muted Blue
-  step3   = "#E67E22", # Muted Orange (Sensitivity)
-  step3b  = "#27AE60", # Muted Green (Pleiotropy)
-  step4   = "#2C3E50", # Dark Navy (Synthesis)
-  border  = "#2C3E50",
-  text    = "#2C3E50"
+strict_primary_path <- get_arg(
+  "--strict-primary",
+  "docs/source_data/Source_Data_3_primary_results_hba1c_strictGIPR200kb.tsv"
 )
 
-draw_box <- function(x, y, w, h, fill, label, subtitle = "") {
-  data.frame(x=x, y=y, w=w, h=h, fill=fill, label=label, subtitle=subtitle, stringsAsFactors=FALSE)
+fmt_or_p <- function(or, lo, hi, p) {
+  or_txt <- sprintf("OR %.2f [%.2f\u2013%.2f]", or, lo, hi)
+  p_txt <- if (is.na(p)) "P = NA" else sprintf("P = %.4f", p)
+  paste0(or_txt, "\n", p_txt)
 }
 
-fmt_n_total <- function(n_case, n_control) {
-  suppressWarnings({
-    nc <- as.numeric(n_case)
-    nn <- as.numeric(n_control)
-  })
-  if (is.na(nc) || is.na(nn)) return(NA_character_)
-  format(nc + nn, big.mark = ",", scientific = FALSE)
+or_callout <- "OR (see Table 2)"
+if (file.exists(strict_primary_path)) {
+  df <- read_tsv_any(strict_primary_path)
+  df$pvalue <- as.numeric(df$pvalue)
+  df$or <- as.numeric(df$or)
+  df$or_ci_lower <- as.numeric(df$or_ci_lower)
+  df$or_ci_upper <- as.numeric(df$or_ci_upper)
+  hit <- df[df$target_symbol == "GIPR" & df$outcome_name == "cholelithiasis_primary", , drop = FALSE]
+  if (nrow(hit) >= 1) {
+    or_callout <- fmt_or_p(hit$or[1], hit$or_ci_lower[1], hit$or_ci_upper[1], hit$pvalue[1])
+  }
 }
 
-phenos <- NULL
-if (file.exists(pheno_defs)) {
-  phenos <- read_tsv_any(pheno_defs)
-}
-
-get_total_n <- function(outcome_name) {
-  if (is.null(phenos) || !all(c("outcome_name", "n_case", "n_control") %in% names(phenos))) return(NA_character_)
-  hit <- phenos[phenos$outcome_name == outcome_name, , drop = FALSE]
-  if (nrow(hit) < 1) return(NA_character_)
-  fmt_n_total(hit$n_case[1], hit$n_control[1])
-}
-
-# --- Define Schematic Components ---
-
-# 1. Title / Header (Added per audit)
-header <- draw_box(0, 11.2, 15, 0.8, "white", "Study design and methodological framework", "")
-
-# Step 1: Instruments
-s1 <- draw_box(0, 9.8, 14, 1.2, cols$step1, "STEP 1: GENETIC INSTRUMENT DISCOVERY", 
-               "Exposure: HbA1c GWAS (UK Biobank-derived)")
-
-# Step 2: Primary MR
-N_finngen_cholelith <- get_total_n("cholelithiasis_primary")
-N_finngen_cholecyst <- get_total_n("cholecystectomy_secondary")
-N_ukb_cholecyst <- get_total_n("cholecystectomy_ukb")
-
-finngen_primary_line <- if (!is.na(N_finngen_cholelith)) paste0("Primary: Cholelithiasis (N=", N_finngen_cholelith, ")") else "Primary: Cholelithiasis"
-finngen_secondary_line <- if (!is.na(N_finngen_cholecyst)) paste0("Secondary: Cholecystectomy (N=", N_finngen_cholecyst, ")") else "Secondary: Cholecystectomy"
-ukb_supporting_line <- if (!is.na(N_ukb_cholecyst)) paste0("Supporting: Cholecystectomy (Procedure; N=", N_ukb_cholecyst, ")") else "Supporting: Cholecystectomy (Procedure)"
-
-s2_a <- draw_box(-3.8, 7.2, 6.4, 2.4, cols$step2, "STEP 2A: INDEPENDENT DISCOVERY", 
-                 paste0("FinnGen Release 12\n", finngen_primary_line, "\n", finngen_secondary_line))
-s2_b <- draw_box(3.8, 7.2, 6.4, 2.4, cols$step2, "STEP 2B: CLINICAL TRIANGULATION", 
-                 paste0("UK Biobank (UKB)\n", ukb_supporting_line, "\n(Transparency: potential sample overlap)"))
-
-# Step 3: Guardrails
-s3_a <- draw_box(-3.8, 4.0, 6.4, 2.2, cols$step3, "STEP 3A: SENSITIVITY ANALYSIS", 
-                 "\u00b11 Mb Broad Window vs.\n\u00b1200 kb Strict Window (GIPR)")
-s3_b <- draw_box(3.8, 4.0, 6.4, 2.2, cols$step3b, "STEP 3B: PLEIOTROPY SCREENING", 
-                 "SNP-level Wald Diagnostics\nInstrument PheWAS (Chromosome 19q13)")
-
-# Step 4: Synthesis
-s4 <- draw_box(0, 1.2, 14, 1.5, cols$step4, "STEP 4: EVIDENCE SYNTHESIS & TRIANGULATION", 
-               "Alignment between independent discovery cohorts, diagnostic stability,\nand regional pleiotropy characterization.")
-
-boxes <- rbind(s1, s2_a, s2_b, s3_a, s3_b, s4)
-
-# Arrows
-arrows <- data.frame(
-  x    = c(0, 0, -3.8, 3.8, -3.8, 3.8),
-  y    = c(9.2, 9.2, 6.0, 6.2, 2.9, 2.9), # Adjusted for new spacing
-  xend = c(-3.8, 3.8, -3.8, 3.8, -3.8, 3.8),
-  yend = c(8.4, 8.4, 5.1, 5.1, 2.0, 2.0)
+# --- Journal Standard Palette ---
+pal <- list(
+  navy    = "#34495E", 
+  blue    = "#2980B9", 
+  orange  = "#D35400", 
+  green   = "#27AE60", 
+  slate   = "#7F8C8D", 
+  bg      = "#FFFFFF",
+  border  = "#2C3E50"
 )
 
 p <- ggplot() +
-  # Draw Header Label (Separate styling)
-  geom_text(data = header, aes(x = x, y = y, label = label), 
-            colour = cols$header, fontface = "bold", size = 4.2, hjust = 0.5) +
-  
-  # Draw Boxes
-  geom_rect(data = boxes, aes(xmin = x - w/2, xmax = x + w/2, ymin = y - h/2, ymax = y + h/2, fill = fill),
-            colour = cols$border, linewidth = 0.4) +
-  
-  # Main Labels
-  geom_text(data = boxes, aes(x = x, y = y + h/4, label = label), 
-            colour = "white", fontface = "bold", size = 3.6) +
-  # Subtitles
-  geom_text(data = boxes, aes(x = x, y = y - h/6, label = subtitle), 
-            colour = "white", size = 3.0, lineheight = 0.95) +
-  
-  # Arrows
-  geom_segment(data = arrows, aes(x = x, y = y, xend = xend, yend = yend),
-               arrow = arrow(length = unit(0.08, "inches"), type = "closed"),
-               colour = cols$border, linewidth = 0.5) +
-  
-  # Horizontal connection Step 2
-  geom_segment(aes(x = -0.6, y = 7.2, xend = 0.6, yend = 7.2),
-               linetype = "dashed", colour = "white", linewidth = 0.4) +
-  
-  scale_fill_identity() +
-  coord_cartesian(xlim = c(-8, 8), ylim = c(0, 12), expand = FALSE) +
+  # --- CONCISE ACADEMIC TITLE (No "Figure 1", Shortened) ---
+  annotate("text", x = 0, y = 11.4, label = "Incretin-target perturbation and biliary safety: a genetic evaluation framework", 
+           size = 4.0, fontface = "bold", colour = pal$navy) +
+
+  # --- PANEL A: GENOMIC DATA INFRASTRUCTURE ---
+  annotate("text", x = -7.5, y = 10.5, label = "A", size = 6, fontface = "bold") +
+  annotate("text", x = -7.2, y = 10.5, label = "  Genomic Data Infrastructure", size = 3.5, fontface = "bold", hjust = 0, colour = pal$blue) +
+  geom_ellipse(aes(x0 = -5, y0 = 9.4, a = 1.0, b = 0.2, angle = 0), fill = pal$blue, alpha = 0.4) +
+  geom_ellipse(aes(x0 = -5, y0 = 9.1, a = 1.0, b = 0.2, angle = 0), fill = pal$blue, alpha = 0.7) +
+  annotate("text", x = -5, y = 8.5, label = "HbA1c GWAS\n(UK Biobank-derived)", size = 2.4) +
+  geom_ellipse(aes(x0 = -2, y0 = 9.4, a = 1.0, b = 0.2, angle = 0), fill = pal$orange, alpha = 0.4) +
+  geom_ellipse(aes(x0 = -2, y0 = 9.1, a = 1.0, b = 0.2, angle = 0), fill = pal$orange, alpha = 0.7) +
+  annotate("text", x = -2, y = 8.5, label = "Biliary/pancreatic outcomes\n(FinnGen Release 12)", size = 2.4) +
+
+  # --- PANEL B: MULTIMODAL EVIDENCE TRIANGULATION ---
+  annotate("text", x = 0.5, y = 10.5, label = "B", size = 6, fontface = "bold") +
+  annotate("text", x = 0.8, y = 10.5, label = "  Multimodal Evidence Triangulation", size = 3.5, fontface = "bold", hjust = 0, colour = pal$orange) +
+  geom_point(aes(x = seq(2.5, 5.5, length.out = 4), y = 9.1), shape = 21, size = 5, fill = pal$orange, alpha = 0.6) +
+  annotate("text", x = 4, y = 8.6, label = "Independent Discovery\n(FinnGen Discovery Cohort)", size = 2.4, fontface = "italic") +
+  geom_point(aes(x = seq(2.5, 5.5, length.out = 4), y = 9.8), shape = 21, size = 5, fill = pal$blue, alpha = 0.4) +
+  annotate("text", x = 4, y = 10.25, label = "Clinical Triangulation\n(UKB supporting endpoint; potential overlap)", size = 2.2, fontface = "italic") +
+
+  # --- PANEL C: REGIONAL PLEIOTROPY SAFEGUARDS ---
+  annotate("text", x = -7.5, y = 5.5, label = "C", size = 6, fontface = "bold") +
+  annotate("text", x = -7.2, y = 5.5, label = "  Regional Pleiotropy Safeguards", size = 3.5, fontface = "bold", hjust = 0, colour = pal$green) +
+  geom_polygon(aes(x = c(-5.5, -1.5, -2.5, -4.5), y = c(4.8, 4.8, 3.2, 3.2)), fill = pal$green, alpha = 0.1, color = pal$green, linewidth = 0.4) +
+  annotate("text", x = -3.5, y = 4.4, label = "Broad cis-window (\u00b11 Mb)", size = 2.4) +
+  annotate("text", x = -3.5, y = 4.0, label = "Regional pleiotropy contamination", size = 2.1, colour = pal$orange, fontface = "italic") +
+  annotate("text", x = -3.5, y = 3.5, label = "Strict cis-window (\u00b1200 kb; GIPR)", size = 2.4, fontface = "bold") +
+  geom_point(aes(x = -3.5, y = 2.8), shape = 8, size = 2.5, colour = pal$green) +
+  annotate("text", x = -3.5, y = 2.4, label = "Instrument PheWAS\n(Chr19q13 characterisation)", size = 2.2) +
+
+  # --- PANEL D: SYNTHESISED CAUSAL ASSOCIATIONS ---
+  annotate("text", x = 0.5, y = 5.5, label = "D", size = 6, fontface = "bold") +
+  annotate("text", x = 0.8, y = 5.5, label = "  Synthesised Causal Associations", size = 3.5, fontface = "bold", hjust = 0, colour = pal$navy) +
+  geom_segment(aes(x = 2, y = 3.5, xend = 6, yend = 3.5), colour = pal$slate, linewidth = 0.3) + 
+  geom_vline(xintercept = 3.5, linetype = "dotted", colour = pal$slate) +
+  geom_point(aes(x = 5.2, y = 3.5), shape = 15, size = 4, colour = pal$orange) + 
+  geom_segment(aes(x = 4.2, y = 3.5, xend = 6.2, yend = 3.5), colour = pal$orange, linewidth = 1.2) +
+  annotate("text", x = 4, y = 4.2, label = "GIPR locus proxy \u2192 Cholelithiasis (FinnGen R12)", size = 2.7, fontface = "bold", colour = pal$navy) +
+  annotate("text", x = 4, y = 2.8, label = or_callout, size = 2.6, fontface = "bold") +
+
+  # --- ACADEMIC CONNECTORS ---
+  geom_curve(aes(x = -3.5, y = 8.6, xend = -3.5, yend = 5.0), curvature = -0.15, arrow = arrow(length = unit(0.08, "inches"), type = "closed"), colour = pal$slate) +
+  geom_segment(aes(x = -1.2, y = 3.5, xend = 1.4, yend = 3.5), arrow = arrow(length = unit(0.08, "inches"), type = "closed"), colour = pal$slate) +
+
+  # Final Layout Settings
+  coord_cartesian(xlim = c(-8, 8), ylim = c(1.5, 12), expand = FALSE) +
   theme_void() +
   theme(
-    plot.background = element_rect(fill = "white", colour = NA),
+    plot.background = element_rect(fill = pal$bg, colour = NA),
     plot.margin = margin(10, 10, 10, 10, "pt")
   )
 
-# --- Final Save ---
+# --- Save Publication-Ready Assets ---
 dir.create(plot_outdir, recursive = TRUE, showWarnings = FALSE)
-ggsave(file.path(plot_outdir, "workflow_diagram.pdf"), p, width = 10, height = 7, device = cairo_pdf)
-ggsave(file.path(plot_outdir, "workflow_diagram.png"), p, width = 10, height = 7, dpi = 300)
+ggsave(file.path(plot_outdir, "workflow_diagram.pdf"), p, width = 8, height = 7, device = cairo_pdf)
+ggsave(file.path(plot_outdir, "workflow_diagram.png"), p, width = 8, height = 7, dpi = 350)
 
-message("Final journal-style workflow diagram (Steps 1-4) saved to ", plot_outdir)
+# Final Sync to Publication Folder
+file.copy(file.path(plot_outdir, "workflow_diagram.pdf"), "plots/publication/pdf/Figure1.pdf", overwrite = TRUE)
+file.copy(file.path(plot_outdir, "workflow_diagram.png"), "plots/publication/png/figure1.png", overwrite = TRUE)
+
+message("Final Publication-Ready Framework Diagram (Shortened Title, No Figure #) generated.")
