@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Figure 2: SNP-level Wald ratio diagnostics for GIPR → cholelithiasis
+# Figure 4: SNP-level Wald ratio diagnostics for GIPR → cholelithiasis
 # Panel A: broad cis-window (Source Data 7)   — 2 SNPs, pooled IVW overlaid
 # Panel B: strict cis-window (Source Data 8)  — 1 SNP (single-instrument Wald)
 # Reads primary results for pooled IVW estimate overlay.
@@ -140,4 +140,4 @@ ggsave(file.path(plot_outdir, "wald_diagnostics.pdf"), fig2,
        width = 6.5, height = 4.5, device = cairo_pdf)
 ggsave(file.path(plot_outdir, "wald_diagnostics.png"), fig2,
        width = 6.5, height = 4.5, dpi = 300)
-message("Figure 2 saved to ", plot_outdir)
+message("Wald diagnostics plot saved to ", plot_outdir)

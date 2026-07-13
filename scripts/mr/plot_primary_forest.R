@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Figure 1: Broad vs strict cis-window MR forest plot (dual-panel)
+# Figure 3: Broad vs strict cis-window MR forest plot (dual-panel)
 # Reads Source Data 1 (broad) and Source Data 3 (strict GIPR)
 # plus sensitivity files for heterogeneity annotations.
 
@@ -169,4 +169,4 @@ ggsave(file.path(plot_outdir, "forest_primary.pdf"), fig1,
        width = 7.5, height = 8, device = cairo_pdf)
 ggsave(file.path(plot_outdir, "forest_primary.png"), fig1,
        width = 7.5, height = 8, dpi = 300)
-message("Figure 1 saved to ", plot_outdir)
+message("MR forest plot saved to ", plot_outdir)

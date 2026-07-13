@@ -1,17 +1,14 @@
 #!/usr/bin/env Rscript
-# Figure 3 / Supplementary: PheWAS pleiotropy contrast for GIPR instruments
+# Supplementary Figure S1: PheWAS contrast for GIPR instruments
 #
 # Compares PheWAS burden between the two GIPR broad-window cis instruments:
-#   rs17561351 — EXCLUDED by strict ±200 kb window (high pleiotropy, 136 hits)
-#   rs10407429 — RETAINED by strict window  (lower pleiotropy, 39 hits)
+#   rs17561351 -- excluded by strict +/-200 kb window
+#   rs10407429 -- retained by strict window
 #
-# Left panel:  horizontal dot plot of top trait associations per domain
+# Left panel: horizontal dot plot of top trait associations per domain
 # Right panel: domain-level hit-count bar comparison
 #
-# This directly supports the manuscript's Step C:
-# "PheWAS screening explains WHY the broad window introduces heterogeneity"
-#
-# Input: results/causal/instrument_phewas_hits_p1e8.tsv (full instrument PheWAS)
+# Input: cached Source Data 9 PheWAS table.
 
 source("scripts/mr/lib_io.R")
 
@@ -30,7 +27,7 @@ get_arg <- function(flag, default = NULL) {
 }
 
 phewas_path <- get_arg("--in",
-  "results/causal/instrument_phewas_hits_p1e8.tsv")
+  "docs/source_data/Source_Data_9_phewas_hits_rs17561351_rs10407429_p1e8.tsv")
 plot_outdir <- get_arg("--outdir", "plots/causal/drug_target_mr")
 
 if (!file.exists(phewas_path)) stop("Missing: ", phewas_path)
@@ -181,13 +178,17 @@ snp_fill <- c(
   "rs17561351 (excluded by strict window)" = "#D55E00",
   "rs10407429 (retained by strict window)"  = "#0072B2"
 )
+snp_fill_labels <- c(
+  "rs17561351 (excluded by strict window)" = "rs17561351 excluded",
+  "rs10407429 (retained by strict window)"  = "rs10407429 retained"
+)
 
 p_b <- ggplot(counts, aes(x = n_hits, y = domain, fill = snp_label)) +
   geom_col(position = position_dodge(width = 0.7), width = 0.6, alpha = 0.85) +
   geom_text(aes(label = n_hits),
             position = position_dodge(width = 0.7),
             hjust = -0.2, size = 2.5, show.legend = FALSE) +
-  scale_fill_manual(values = snp_fill, name = "GIPR instrument") +
+  scale_fill_manual(values = snp_fill, labels = snp_fill_labels, name = "Instrument") +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(x = "Number of PheWAS hits (p < 1e-8)", y = NULL,
        subtitle = "Domain-level pleiotropy burden") +
@@ -205,6 +206,7 @@ p_b <- ggplot(counts, aes(x = n_hits, y = domain, fill = snp_label)) +
     legend.title = element_text(size = 7.5, face = "bold"),
     legend.text = element_text(size = 7),
     legend.key.size = unit(0.3, "cm"),
+    legend.box.margin = margin(2, 2, 2, 2, "pt"),
     plot.margin = margin(4, 8, 4, 4, "pt")
   )
 
@@ -228,7 +230,7 @@ fig_final <- plot_grid(title_grob, fig, ncol = 1, rel_heights = c(0.05, 1))
 
 dir.create(plot_outdir, recursive = TRUE, showWarnings = FALSE)
 ggsave(file.path(plot_outdir, "phewas_contrast.pdf"), fig_final,
-       width = 11, height = 7, device = cairo_pdf)
+       width = 12, height = 7.5, device = cairo_pdf, bg = "white")
 ggsave(file.path(plot_outdir, "phewas_contrast.png"), fig_final,
-       width = 11, height = 7, dpi = 300)
+       width = 12, height = 7.5, dpi = 300, bg = "white")
 message("PheWAS contrast figure saved to ", plot_outdir)

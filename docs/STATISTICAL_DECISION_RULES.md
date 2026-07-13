@@ -1,6 +1,6 @@
 # Statistical decision rules
 
-This document records the predeclared statistical thresholds used for the reported analyses and figure outputs.
+This document records the predefined statistical thresholds used for the reported analyses and figure outputs.
 
 ## Effect estimation
 - Primary estimator: inverse-variance weighted (IVW) for multi-variant instruments.

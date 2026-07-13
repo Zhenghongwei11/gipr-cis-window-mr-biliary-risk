@@ -48,7 +48,7 @@ rs17561351	ieu-b-108	apolipoprotein B	0.0440635	0.0042059	1.10002e-25	0.06408	G	
 rs17561351	ebi-a-GCST90013994	Apolipoprotein B levels (UKB data field 30640)	0.045037	0.00445409	4.91813e-24	NA	G	A	388022
 rs17561351	met-d-IDL_C_pct	Cholesterol to total lipids ratio in IDL	0.0740936	0.00828568	2.29985e-20	0.063523	G	A	NA
 rs17561351	ukb-d-30100_irnt	Mean platelet (thrombocyte) volume	0.0451049	0.00490104	3.49543e-20	0.0638348	G	A	350470
-rs17561351	ukb-d-30640_irnt	Apoliprotein B	0.04457	0.0048652	5.16535e-20	0.064049	G	A	342590
+rs17561351	ukb-d-30640_irnt	Apolipoprotein B	0.04457	0.0048652	5.16535e-20	0.064049	G	A	342590
 rs17561351	met-d-IDL_CE_pct	Cholesteryl esters to total lipids ratio in IDL	0.0740573	0.00832789	8.30042e-20	0.063523	G	A	NA
 rs17561351	ebi-a-GCST90092832	Cholesterol to total lipids ratio in IDL	0.0745277	0.00823707	1.50003e-19	0.063534	G	A	115082
 rs17561351	ebi-a-GCST90092834	Cholesteryl esters to total lipids ratio in IDL	0.0746551	0.00825511	1.50003e-19	0.063534	G	A	115082
@@ -56,7 +56,7 @@ rs17561351	met-d-S_LDL_FC_pct	Free cholesterol to total lipids ratio in small LD
 rs17561351	ieu-b-111	triglycerides	-0.0363975	0.00407138	3.90032e-19	0.064037	G	A	NA
 rs17561351	ebi-a-GCST90092961	Free cholesterol to total lipids ratio in small LDL	0.0725417	0.00817288	6.90081e-19	0.063534	G	A	115082
 rs17561351	met-d-IDL_TG_pct	Triglycerides to total lipids ratio in IDL	-0.0698115	0.00819991	1.9002e-18	0.063523	G	A	NA
-rs17561351	ukb-d-30640_raw	Apoliprotein B	0.010057	0.0011585	3.93822e-18	0.064049	G	A	342590
+rs17561351	ukb-d-30640_raw	Apolipoprotein B	0.010057	0.0011585	3.93822e-18	0.064049	G	A	342590
 rs17561351	ebi-a-GCST90092842	Triglycerides to total lipids ratio in IDL	-0.0704623	0.00813442	4.60045e-18	0.063534	G	A	115082
 rs17561351	met-d-S_LDL_TG_pct	Triglycerides to total lipids ratio in small LDL	-0.0695272	0.0082263	6.4003e-18	0.063523	G	A	NA
 rs17561351	ebi-a-GCST90092967	Triglycerides to total lipids ratio in small LDL	-0.0700253	0.00816517	9.79941e-18	0.063534	G	A	115082

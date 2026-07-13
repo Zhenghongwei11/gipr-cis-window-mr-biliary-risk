@@ -1,0 +1,13 @@
+rsid	domain	n_hits_p_lt_1e5	top_trait	top_id	top_beta	top_p	n_positive_beta	n_negative_beta
+rs10407429	Glycaemic	40	Glycated haemoglobin HbA1c levels (UKB data field 30750)	ebi-a-GCST90014006	-0.0254364	7.43019e-36	0	40
+rs10407429	Other	24	Fresh fruit intake	ukb-b-3881	0.00771456	4.39997e-10	13	11
+rs10407429	Platelet/hematologic	23	Platelet count	ebi-a-GCST90028999	0.0174116	5.4000799999999996e-20	7	16
+rs10407429	Lipid/lipoprotein	8	High density lipoprotein cholesterol levels (UKB data field 30760)	ebi-a-GCST90014007	0.0125096	2.55294e-10	8	0
+rs10407429	Molecular QTL	4	ENSG00000104936	eqtl-a-ENSG00000104936	0.174799	6.05899e-49	4	0
+rs10407429	Anthropometric	1	Weight	ebi-a-GCST90018729	0.0150353	3.2e-06	1	0
+rs17561351	Lipid/lipoprotein	197	Low density lipoprotein cholesterol levels	ebi-a-GCST90002412	0.0419146	2.7002300000000002e-28	108	89
+rs17561351	Platelet/hematologic	20	Mean platelet volume	ebi-a-GCST90028996	0.0446085	1.39991e-37	18	2
+rs17561351	Other	17	Eosinophil counts	ebi-a-GCST90002298	0.028615	1.89017e-12	15	2
+rs17561351	Inflammation/immune	10	Monocyte count	ebi-a-GCST90018967	0.0314	3.63664e-11	10	0
+rs17561351	Molecular QTL	6	ENSG00000130202	eqtl-a-ENSG00000130202	1.97862	3.27341e-310	2	4
+rs17561351	Glycaemic	3	Glycated haemoglobin HbA1c levels (UKB data field 30750)	ebi-a-GCST90014006	0.0321246	8.86952e-15	3	0

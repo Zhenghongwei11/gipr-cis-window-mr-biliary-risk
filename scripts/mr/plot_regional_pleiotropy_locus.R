@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Figure 4: Regional pleiotropy locus plot for chr19q13 around GIPR (GRCh37).
+# Figure 2: Regional pleiotropy locus plot for chr19q13 around GIPR (GRCh37).
 #
 # Visualizes gene density within the broad cis window (±1 Mb) and highlights the
 # strict GIPR window (±200 kb), alongside the two broad-window HbA1c instruments
@@ -176,15 +176,11 @@ p <- ggplot() +
   scale_y_reverse(expand = expansion(mult = c(0.02, 0.18))) +
   labs(
     x = "Genomic position (chr19, GRCh37; Mb)",
-    y = NULL,
-    title = "Regional pleiotropy context around GIPR (chr19q13)",
-    subtitle = "Gene-dense broad window (±1 Mb) vs strict GIPR window (±200 kb), with broad-window instruments overlaid"
+    y = NULL
   ) +
   theme_bw(base_size = 9) +
   theme(
     text = element_text(family = "sans"),
-    plot.title = element_text(face = "bold", size = 10, hjust = 0.5),
-    plot.subtitle = element_text(size = 8.5, hjust = 0.5),
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(),
     axis.text.y = element_blank(),
