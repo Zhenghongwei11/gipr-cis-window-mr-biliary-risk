@@ -54,7 +54,7 @@ pal <- list(
 p <- ggplot() +
   # --- PANEL A: GENOMIC DATA INFRASTRUCTURE ---
   annotate("text", x = -7.5, y = 10.5, label = "A", size = 6, fontface = "bold") +
-  annotate("text", x = -7.2, y = 10.5, label = "  Genomic Data Infrastructure", size = 3.5, fontface = "bold", hjust = 0, colour = pal$blue) +
+  annotate("text", x = -7.2, y = 10.5, label = "  Data Sources", size = 3.5, fontface = "bold", hjust = 0, colour = pal$blue) +
   geom_ellipse(aes(x0 = -5, y0 = 9.4, a = 1.0, b = 0.2, angle = 0), fill = pal$blue, alpha = 0.4) +
   geom_ellipse(aes(x0 = -5, y0 = 9.1, a = 1.0, b = 0.2, angle = 0), fill = pal$blue, alpha = 0.7) +
   annotate("text", x = -5, y = 8.5, label = "HbA1c GWAS\n(UK Biobank-derived)", size = 2.4) +
@@ -64,7 +64,7 @@ p <- ggplot() +
 
   # --- PANEL B: PHENOTYPIC AND CROSS-COHORT TRIANGULATION ---
   annotate("text", x = 0.5, y = 10.5, label = "B", size = 6, fontface = "bold") +
-  annotate("text", x = 0.8, y = 10.5, label = "  Phenotypic & Cross-Cohort Triangulation", size = 3.5, fontface = "bold", hjust = 0, colour = pal$orange) +
+  annotate("text", x = 0.8, y = 10.5, label = "  Phenotype Triangulation", size = 3.5, fontface = "bold", hjust = 0, colour = pal$orange) +
   annotate("rect", xmin = 1.5, xmax = 3.7, ymin = 9.2, ymax = 9.9, fill = pal$orange, alpha = 0.12, colour = pal$orange, linewidth = 0.4) +
   annotate("text", x = 2.6, y = 9.55, label = "FinnGen R12\ncholelithiasis", size = 2.3) +
   annotate("rect", xmin = 4.3, xmax = 6.7, ymin = 9.2, ymax = 9.9, fill = pal$blue, alpha = 0.10, colour = pal$blue, linewidth = 0.4) +
@@ -74,7 +74,7 @@ p <- ggplot() +
 
   # --- PANEL C: REGIONAL PLEIOTROPY SENSITIVITY ANALYSES ---
   annotate("text", x = -7.5, y = 5.5, label = "C", size = 6, fontface = "bold") +
-  annotate("text", x = -7.2, y = 5.5, label = "  Regional Pleiotropy Sensitivity Analyses", size = 3.5, fontface = "bold", hjust = 0, colour = pal$green) +
+  annotate("text", x = -7.2, y = 5.5, label = "  GIPR Cis-Window Sensitivity", size = 3.5, fontface = "bold", hjust = 0, colour = pal$green) +
   geom_polygon(aes(x = c(-5.5, -1.5, -2.5, -4.5), y = c(4.8, 4.8, 3.2, 3.2)), fill = pal$green, alpha = 0.1, color = pal$green, linewidth = 0.4) +
   annotate("text", x = -3.5, y = 4.4, label = "Broad cis-window (\u00b11 Mb)", size = 2.4) +
   annotate("text", x = -3.5, y = 4.0, label = "Regional pleiotropy contamination", size = 2.1, colour = pal$orange, fontface = "italic") +
@@ -82,15 +82,15 @@ p <- ggplot() +
   geom_point(aes(x = -3.5, y = 2.8), shape = 8, size = 2.5, colour = pal$green) +
   annotate("text", x = -3.5, y = 2.4, label = "Instrument PheWAS\n(Chr19q13 characterisation)", size = 2.2) +
 
-  # --- PANEL D: SYNTHESISED LOCUS-PROXY ASSOCIATIONS ---
+# --- PANEL D: INTERPRETATION LAYER ---
   annotate("text", x = 0.5, y = 5.5, label = "D", size = 6, fontface = "bold") +
-  annotate("text", x = 0.8, y = 5.5, label = "  Synthesised Locus-Proxy Associations", size = 3.5, fontface = "bold", hjust = 0, colour = pal$navy) +
+  annotate("text", x = 0.8, y = 5.5, label = "  Interpretation", size = 3.5, fontface = "bold", hjust = 0, colour = pal$navy) +
   geom_segment(aes(x = 2, y = 3.5, xend = 6, yend = 3.5), colour = pal$slate, linewidth = 0.3) + 
   geom_segment(aes(x = 3.5, y = 3.0, xend = 3.5, yend = 3.9), linetype = "dotted", colour = pal$slate, linewidth = 0.3) +
-  geom_point(aes(x = 5.2, y = 3.5), shape = 15, size = 4, colour = pal$orange) + 
-  geom_segment(aes(x = 4.2, y = 3.5, xend = 6.2, yend = 3.5), colour = pal$orange, linewidth = 1.2) +
-  annotate("text", x = 4, y = 4.2, label = "GIPR locus proxy \u2192 Cholelithiasis (FinnGen R12)", size = 2.7, fontface = "bold", colour = pal$navy) +
-  annotate("text", x = 4, y = 2.8, label = or_callout, size = 2.6, fontface = "bold") +
+  geom_point(aes(x = 2.7, y = 3.5), shape = 15, size = 3.6, colour = pal$orange) +
+  geom_point(aes(x = 4.8, y = 3.5), shape = 1, size = 4.0, colour = pal$navy, stroke = 1.0) +
+  annotate("text", x = 4, y = 4.35, label = "Locus-level genetic evidence", size = 2.7, fontface = "bold", colour = pal$navy) +
+  annotate("text", x = 4, y = 2.75, label = "Target-specific pharmacology\nrequires additional molecular anchoring", size = 2.25, colour = pal$slate) +
 
   # --- ACADEMIC CONNECTORS ---
   geom_curve(aes(x = -3.5, y = 8.6, xend = -3.5, yend = 5.0), curvature = -0.15, arrow = arrow(length = unit(0.08, "inches"), type = "closed"), colour = pal$slate) +
@@ -113,4 +113,4 @@ ggsave(file.path(plot_outdir, "workflow_diagram.png"), p, width = 8, height = 7,
 file.copy(file.path(plot_outdir, "workflow_diagram.pdf"), "plots/publication/pdf/Figure1.pdf", overwrite = TRUE)
 file.copy(file.path(plot_outdir, "workflow_diagram.png"), "plots/publication/png/Figure1.png", overwrite = TRUE)
 
-message("Final Publication-Ready Framework Diagram (Shortened Title, No Figure #) generated.")
+message("Workflow diagram generated.")

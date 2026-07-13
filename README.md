@@ -1,9 +1,9 @@
-# Drug-target MR: incretin pathway and biliary outcomes (reproducibility package)
+# GIPR-region cis-MR and biliary outcomes
 
-This repository provides a lightweight reproduction bundle for a drug-target Mendelian randomization (MR) analysis of **incretin-pathway targets** (GLP1R, GIPR; comparator SLC5A2) and **biliary outcomes**, with pancreatitis retained as a secondary contextual endpoint.
+This repository provides a lightweight reproduction bundle for a locus-level Mendelian randomization analysis of **HbA1c-linked cis variants near GLP1R, GIPR, and SLC5A2** and **biliary outcomes**, with pancreatitis retained as a secondary contextual endpoint.
 
 ## What you can reproduce quickly
-Without any API tokens, you can regenerate the reported figures from the included small Source Data tables:
+Without API tokens, you can regenerate the reported figures from the included source-data tables:
 
 ```bash
 bash scripts/reproduce_one_click.sh
@@ -23,4 +23,4 @@ python3 -m pip install -r requirements.txt
 
 ## Notes
 - The included `docs/source_data/` tables are traceable exports supporting the reported figures and tables.
-- Full end-to-end recomputation from raw GWAS summary statistics is outside the scope of this lightweight bundle because it requires larger downloads and authenticated API access for some upstream queries.
+- Full recomputation from raw GWAS summary statistics is outside the scope of this lightweight bundle because it requires larger downloads and authenticated API access for some upstream queries.

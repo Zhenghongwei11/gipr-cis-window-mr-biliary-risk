@@ -1,6 +1,6 @@
-Package: incretin-biliary-mr-repro
+Package: gipr-biliary-cis-mr-repro
 Type: Project
-Title: Drug-target Mendelian Randomization Reproducibility Bundle
+Title: GIPR Region Cis-MR Reproducibility Bundle
 Version: 0.1.0
 Authors@R: c(
   person("Hongwei", "Zheng", role = c("aut", "cre")),

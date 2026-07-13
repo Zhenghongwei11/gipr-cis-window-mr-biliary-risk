@@ -13,6 +13,7 @@ OUT_PNG = Path("plots/causal/drug_target_mr/variant_trait_pathway_heatmap.png")
 OUT_PDF = Path("plots/causal/drug_target_mr/variant_trait_pathway_heatmap.pdf")
 
 PHEWAS = Path("docs/source_data/Source_Data_9_phewas_hits_rs17561351_rs10407429_p1e8.tsv")
+DOMAIN_SUMMARY = Path("docs/source_data/Source_Data_15_domain_summary.tsv")
 INSTRUMENTS = Path("docs/source_data/Source_Data_5_GIPR_instruments_wide1mb.tsv")
 WALD_DIR = Path("results/causal/drug_target_mr_runs/hba1c_wide1mb/diagnostics")
 
@@ -208,63 +209,55 @@ def build_table() -> pd.DataFrame:
 
 
 def plot_heatmap(df: pd.DataFrame) -> None:
-    plot_df = df.copy()
-    plot_df["signed_neg_log10_p_num"] = pd.to_numeric(
-        plot_df["signed_neg_log10_p"], errors="coerce"
+    del df
+    summary = pd.read_csv(DOMAIN_SUMMARY, sep="\t")
+    summary["n_hits_p_lt_1e5"] = pd.to_numeric(summary["n_hits_p_lt_1e5"], errors="coerce")
+    summary = summary[summary["rsid"].isin(VARIANTS)].copy()
+    summary["variant_label"] = summary["rsid"].map({
+        "rs10407429": "rs10407429\n(strict retained)",
+        "rs17561351": "rs17561351\n(strict excluded)",
+    })
+
+    domain_order = (
+        summary.groupby("domain")["n_hits_p_lt_1e5"]
+        .sum()
+        .sort_values()
+        .index
+        .tolist()
     )
-    order = [
-        "HbA1c instrument effect",
-        "Type 2 diabetes",
-        "Glucose",
-        "LDL cholesterol",
-        "HDL cholesterol",
-        "Apolipoprotein B",
-        "Triglycerides",
-        "Mean platelet volume",
-        "BMI / adiposity",
-        "Cholelithiasis",
-        "Cholecystectomy FinnGen",
-        "Cholecystectomy UKB",
-        "Cholecystitis",
-        "Acute pancreatitis",
-    ]
-    matrix = (
-        plot_df.pivot(index="trait_label", columns="variant", values="signed_neg_log10_p_num")
-        .reindex(order)
-        .reindex(columns=list(VARIANTS))
-    )
+    variants = ["rs10407429", "rs17561351"]
+    colours = {"rs10407429": "#0072B2", "rs17561351": "#D55E00"}
 
-    values = matrix.to_numpy(dtype=float)
-    finite = values[~pd.isna(values)]
-    vmax = max(10.0, min(60.0, float(max(abs(finite))) if finite.size else 10.0))
+    fig, ax = plt.subplots(figsize=(7.4, 4.6))
+    y_base = list(range(len(domain_order)))
+    offsets = {"rs10407429": 0.18, "rs17561351": -0.18}
+    height = 0.32
 
-    fig, ax = plt.subplots(figsize=(7.2, 6.2))
-    cmap = plt.cm.RdBu_r.copy()
-    cmap.set_bad("#f2f2f2")
-    im = ax.imshow(values, cmap=cmap, vmin=-vmax, vmax=vmax, aspect="auto")
+    for variant in variants:
+        sub = summary[summary["rsid"] == variant].set_index("domain")
+        values = [float(sub.loc[d, "n_hits_p_lt_1e5"]) if d in sub.index else 0.0 for d in domain_order]
+        y = [i + offsets[variant] for i in y_base]
+        ax.barh(y, values, height=height, color=colours[variant], alpha=0.88, label=summary[summary["rsid"] == variant]["variant_label"].iloc[0])
+        for yi, val in zip(y, values):
+            if val > 0:
+                ax.text(val + max(summary["n_hits_p_lt_1e5"]) * 0.015, yi, f"{int(val)}", va="center", fontsize=8)
 
-    ax.set_xticks(range(len(matrix.columns)))
-    ax.set_xticklabels(["rs10407429\n(strict retained)", "rs17561351\n(strict excluded)"], fontsize=9)
-    ax.set_yticks(range(len(matrix.index)))
-    ax.set_yticklabels(matrix.index, fontsize=8)
-    ax.tick_params(length=0)
-
-    for i, trait in enumerate(matrix.index):
-        for j, variant in enumerate(matrix.columns):
-            val = matrix.loc[trait, variant]
-            label = "NA" if pd.isna(val) else f"{val:.1f}"
-            color = "#555555" if pd.isna(val) else "white" if abs(val) > vmax * 0.45 else "#222222"
-            ax.text(j, i, label, ha="center", va="center", fontsize=7, color=color)
-
-    cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
-    cbar.set_label("signed -log10(P)", fontsize=9)
+    ax.set_yticks(y_base)
+    ax.set_yticklabels(domain_order, fontsize=9)
+    ax.set_xlabel("Retrieved association records (p < 1e-5)", fontsize=10)
+    ax.set_ylabel("")
+    ax.grid(axis="x", color="#DDDDDD", linewidth=0.5)
+    ax.set_axisbelow(True)
+    ax.legend(frameon=False, loc="lower right", fontsize=8)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
     fig.text(
-        0.02,
         0.01,
-        "Positive values indicate positive beta/Wald log-OR; negative values indicate inverse direction. Grey cells: no cached p<1e-8 hit or variant absent.",
-        fontsize=7,
+        0.01,
+        "Counts are database association records after domain classification, not independent phenotype counts.",
+        fontsize=7.5,
     )
-    fig.tight_layout(rect=(0, 0.04, 1, 1))
+    fig.tight_layout(rect=(0, 0.05, 1, 1))
 
     OUT_PNG.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(OUT_PNG, dpi=300)
@@ -273,7 +266,17 @@ def plot_heatmap(df: pd.DataFrame) -> None:
 
 
 def main() -> int:
-    df = build_table()
+    required_wald = [WALD_DIR / filename for _domain, _label, filename in WALD_TRAITS]
+    if all(path.exists() for path in required_wald):
+        df = build_table()
+    elif OUT_TABLE.exists():
+        df = pd.read_csv(OUT_TABLE, sep="\t")
+    else:
+        missing = ", ".join(str(path) for path in required_wald if not path.exists())
+        raise FileNotFoundError(
+            "Missing Wald diagnostic inputs and no cached association map is available: "
+            f"{missing}"
+        )
     plot_heatmap(df)
     print(f"Wrote {OUT_TABLE}")
     print(f"Wrote {OUT_PNG}")

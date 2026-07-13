@@ -100,7 +100,7 @@ make_forest <- function(df, x_label = "Odds ratio (95% CI)", x_log = TRUE) {
   # Compute nice axis limits
   all_vals <- c(df$or_ci_lower, df$or_ci_upper)
   x_min <- max(0.01, min(all_vals, na.rm = TRUE) * 0.7)
-  x_max <- min(1000, max(all_vals, na.rm = TRUE) * 1.4)
+  x_max <- min(1200, max(all_vals, na.rm = TRUE) * 1.6)
 
   # Build annotation column: OR (CI), het P
   df$annot <- sprintf("%.2f (%.2f\u2013%.2f)", df$or, df$or_ci_lower, df$or_ci_upper)
@@ -124,8 +124,8 @@ make_forest <- function(df, x_label = "Odds ratio (95% CI)", x_log = TRUE) {
     scale_colour_manual(values = target_cols, name = "Target locus") +
     scale_shape_manual(values = target_shapes, name = "Target locus") +
     scale_x_continuous(trans = "log10",
-                       breaks = c(0.1, 0.25, 0.5, 1, 2, 4, 10),
-                       labels = c("0.1", "0.25", "0.5", "1", "2", "4", "10"),
+                       breaks = c(0.01, 0.03, 0.1, 0.25, 0.5, 1, 2, 4, 10, 25, 100, 200, 500, 1000),
+                       labels = c("0.01", "0.03", "0.1", "0.25", "0.5", "1", "2", "4", "10", "25", "100", "200", "500", "1000"),
                        limits = c(x_min, x_max),
                        oob = squish) +
     labs(x = x_label, y = NULL) +

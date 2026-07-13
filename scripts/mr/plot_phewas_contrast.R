@@ -1,12 +1,12 @@
 #!/usr/bin/env Rscript
 # Supplementary Figure S1: PheWAS contrast for GIPR instruments
 #
-# Compares PheWAS burden between the two GIPR broad-window cis instruments:
+# Compares retrieved PheWAS association records between the two GIPR broad-window cis instruments:
 #   rs17561351 -- excluded by strict +/-200 kb window
 #   rs10407429 -- retained by strict window
 #
 # Left panel: horizontal dot plot of top trait associations per domain
-# Right panel: domain-level hit-count bar comparison
+# Right panel: domain-level association-record comparison
 #
 # Input: cached Source Data 9 PheWAS table.
 
@@ -76,6 +76,7 @@ classify_domain <- function(trait) {
 }
 
 df$domain <- classify_domain(df$trait)
+df_counts_all <- df
 
 # --- Clean trait names ---
 clean_trait <- function(s) {
@@ -156,13 +157,13 @@ p_a <- ggplot(df_top, aes(x = neglog10p, y = trait_clean, colour = domain)) +
     axis.text.y = element_text(size = 7),
     axis.text.x = element_text(size = 7.5),
     legend.position = "none",
-    plot.margin = margin(4, 4, 4, 4, "pt")
+    plot.margin = margin(4, 6, 4, 54, "pt")
   )
 
 # =====================================================================
-# PANEL B: Domain-level hit-count comparison (grouped bar)
+# PANEL B: Domain-level association-record comparison (grouped bar)
 # =====================================================================
-counts <- as.data.frame(table(df$rsid, df$domain), stringsAsFactors = FALSE)
+counts <- as.data.frame(table(df_counts_all$rsid, df_counts_all$domain), stringsAsFactors = FALSE)
 names(counts) <- c("rsid", "domain", "n_hits")
 counts <- counts[counts$n_hits > 0, ]
 counts$snp_label <- snp_labels[counts$rsid]
@@ -190,8 +191,8 @@ p_b <- ggplot(counts, aes(x = n_hits, y = domain, fill = snp_label)) +
             hjust = -0.2, size = 2.5, show.legend = FALSE) +
   scale_fill_manual(values = snp_fill, labels = snp_fill_labels, name = "Instrument") +
   scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
-  labs(x = "Number of PheWAS hits (p < 1e-8)", y = NULL,
-       subtitle = "Domain-level pleiotropy burden") +
+  labs(x = "Retrieved association records (p < 1e-8)", y = NULL,
+       subtitle = "Domain-level association records") +
   theme_bw(base_size = 9) +
   theme(
     text = element_text(family = "sans"),
@@ -219,18 +220,11 @@ fig <- plot_grid(
   labels = c("A", "B"), label_size = 11
 )
 
-# Add a shared title
-title_grob <- ggdraw() +
-  draw_label(
-    "Instrument PheWAS: GIPR broad-window variants (rs17561351 vs rs10407429)",
-    fontface = "bold", size = 10, x = 0.02, hjust = 0
-  )
-
-fig_final <- plot_grid(title_grob, fig, ncol = 1, rel_heights = c(0.05, 1))
+fig_final <- fig
 
 dir.create(plot_outdir, recursive = TRUE, showWarnings = FALSE)
 ggsave(file.path(plot_outdir, "phewas_contrast.pdf"), fig_final,
-       width = 12, height = 7.5, device = cairo_pdf, bg = "white")
+       width = 13, height = 7.5, device = cairo_pdf, bg = "white")
 ggsave(file.path(plot_outdir, "phewas_contrast.png"), fig_final,
-       width = 12, height = 7.5, dpi = 300, bg = "white")
+       width = 13, height = 7.5, dpi = 300, bg = "white")
 message("PheWAS contrast figure saved to ", plot_outdir)

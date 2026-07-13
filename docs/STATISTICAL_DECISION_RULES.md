@@ -12,4 +12,4 @@ This document records the predefined statistical thresholds used for the reporte
 
 ## Reporting
 - Effect sizes are reported as odds ratios (OR) with 95% confidence intervals for binary outcomes.
-- PheWAS screening used a stringent threshold of p < 1×10^-8 to characterise non-target association burden.
+- Variant association profiles used retrieved association records at p < 1×10^-8 and p < 1×10^-5 to describe non-target association patterns.
